@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Letter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Loading Screen -->
+    <div id="loading-screen" class="screen active">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- 2. Envelope Screen -->
+    <div id="envelope-screen" class="screen">
+        <div id="envelope" class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body"></div>
+            <div class="letter-card"></div>
+            <button id="open-envelope-btn">Click to Open</button>
+        </div>
+    </div>
+
+    <!-- 3. Postcard Slideshow Screen -->
+    <div id="postcard-screen" class="screen">
+        <div class="postcard">
+            <!-- Your Content Goes Here -->
+            <!-- Page 1 -->
+            <div class="page active">
+                <h1>My Dearest Friend,</h1>
+                <p>I wanted to take a moment to write you this letter. There's so much I want to share with you.</p>
+                <p>Please turn the page to continue reading.</p>
+                <p><em>(You can edit all of this text in the index.html file!)</em></p>
+            </div>
+            <!-- Page 2 -->
+            <div class="page">
+                <h2>Page Two Content</h2>
+                <p>This is the second page of your letter. You can add images, more text, or anything you like here.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+            </div>
+            <!-- Page 3 (Last Page) -->
+            <div class="page">
+                <h2>The Final Page</h2>
+                <p>Thank you for taking the time to read my letter. It means the world to me.</p>
+                <p>With all my love,</p>
+                <h3>Your Name</h3>
+            </div>
+        </div>
+        <!-- Fixed Navigation Buttons -->
+        <div class="postcard-nav">
+            <button id="prev-page-btn" class="nav-btn">◀ Left</button>
+            <button id="next-page-btn" class="nav-btn">Right ▶</button>
+            <button id="end-letter-btn" class="nav-btn">End</button>
+        </div>
+    </div>
+
+    <!-- 4. "Thank You" Screen -->
+    <div id="thanks-screen" class="screen">
+        <div class="thanks-content">
+            <h1>Thank you for reading!</h1>
+            <p>I hope this letter brought a smile to your face.</p>
+            <button id="read-again-btn">Read Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
