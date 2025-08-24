@@ -163,6 +163,32 @@ body {
     to { opacity: 1; }
 }
 
+/* ★★★ NEW SECTION: ELEGANT SCROLLBAR STYLING ★★★ */
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.postcard::-webkit-scrollbar {
+  width: 8px;
+}
+.postcard::-webkit-scrollbar-track {
+  background: #fdf5e8; /* A slightly different shade for the track */
+  border-radius: 10px;
+}
+.postcard::-webkit-scrollbar-thumb {
+  background-color: #c1b3a9; /* Color of the scroll thumb */
+  border-radius: 10px;       /* Roundness of the scroll thumb */
+  border: 2px solid #fdf5e8; /* Creates padding around thumb */
+}
+.postcard::-webkit-scrollbar-thumb:hover {
+  background-color: #8c786a; /* Darker color on hover */
+}
+
+/* For Firefox */
+.postcard {
+  scrollbar-width: thin;
+  scrollbar-color: #c1b3a9 #fdf5e8; /* thumb color track color */
+}
+
+
 .postcard-nav {
     position: fixed;
     bottom: 30px;

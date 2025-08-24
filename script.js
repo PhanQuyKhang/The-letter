@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Loading Logic ---
     setTimeout(() => {
         showScreen('envelope');
-    }, 2500); // Simulate loading for 2.5 seconds
+    }, 1500); // Simulate loading for 1.5 seconds
 
     // --- Envelope Logic ---
     openEnvelopeBtn.addEventListener('click', () => {
