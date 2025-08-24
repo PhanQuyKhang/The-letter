@@ -54,6 +54,7 @@ body {
     display: flex;
     align-items: flex-end; /* Align items to the bottom */
     justify-content: center;
+    transition: transform 0.3s ease-out; /* Added for smooth scaling */
 }
 .envelope-body {
     position: absolute;
@@ -163,31 +164,26 @@ body {
     to { opacity: 1; }
 }
 
-/* ★★★ NEW SECTION: ELEGANT SCROLLBAR STYLING ★★★ */
-
-/* For Webkit browsers (Chrome, Safari, Edge) */
+/* Elegant Scrollbar Styling */
 .postcard::-webkit-scrollbar {
   width: 8px;
 }
 .postcard::-webkit-scrollbar-track {
-  background: #fdf5e8; /* A slightly different shade for the track */
+  background: #fdf5e8;
   border-radius: 10px;
 }
 .postcard::-webkit-scrollbar-thumb {
-  background-color: #c1b3a9; /* Color of the scroll thumb */
-  border-radius: 10px;       /* Roundness of the scroll thumb */
-  border: 2px solid #fdf5e8; /* Creates padding around thumb */
+  background-color: #c1b3a9;
+  border-radius: 10px;
+  border: 2px solid #fdf5e8;
 }
 .postcard::-webkit-scrollbar-thumb:hover {
-  background-color: #8c786a; /* Darker color on hover */
+  background-color: #8c786a;
 }
-
-/* For Firefox */
 .postcard {
   scrollbar-width: thin;
-  scrollbar-color: #c1b3a9 #fdf5e8; /* thumb color track color */
+  scrollbar-color: #c1b3a9 #fdf5e8;
 }
-
 
 .postcard-nav {
     position: fixed;
@@ -232,4 +228,69 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+
+/* =================================== */
+/*          RESPONSIVE DESIGN          */
+/* =================================== */
+
+/* For Tablets and smaller devices (up to 768px wide) */
+@media (max-width: 768px) {
+    .postcard {
+        padding: 25px;
+        max-height: 500px; /* Allow more height on tablets */
+    }
+}
+
+/* For Mobile Phones (up to 600px wide) */
+@media (max-width: 600px) {
+    .envelope {
+        /* Scale down the envelope to better fit the screen */
+        transform: scale(0.9);
+    }
+
+    .postcard {
+        /* Make the postcard take up more of the screen */
+        width: 95%;
+        height: 85%;
+        max-height: 85vh; /* Use viewport height to be flexible */
+        padding: 20px;
+    }
+
+    /* Adjust font sizes for better readability on small screens */
+    .page h1 { font-size: 1.8em; }
+    .page h2 { font-size: 1.4em; }
+    .page p { font-size: 0.95em; line-height: 1.5; }
+
+    .postcard-nav {
+        bottom: 20px; /* Move buttons up slightly */
+        gap: 10px;
+    }
+
+    .nav-btn {
+        /* Make buttons smaller */
+        padding: 10px 18px;
+        font-size: 0.9em;
+    }
+
+    .thanks-content h1 {
+        font-size: 2em;
+    }
+
+    #read-again-btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+/* For very small phones (up to 380px wide) */
+@media (max-width: 380px) {
+    .envelope {
+        transform: scale(0.8); /* Scale down even more */
+    }
+
+     .nav-btn {
+        padding: 8px 15px; /* Even smaller buttons */
+    }
 }
