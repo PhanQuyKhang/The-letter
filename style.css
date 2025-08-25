@@ -84,7 +84,7 @@ body {
     height: 100px;
     background-color: #c39e8a;
     transform-origin: top;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 1s ease-in-out;
     filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4));
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     z-index: 9;
@@ -101,7 +101,7 @@ body {
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
     z-index: 3;
-    transition: transform 0.8s 0.3s ease-out, opacity 0.8s 0.3s ease-out;
+    transition: transform 1.5s 1s ease-out, opacity 0.8s 0.3s ease-out;
     transform: translateY(0);
     opacity: 1;
 }

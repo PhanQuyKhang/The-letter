@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const readAgainBtn = document.getElementById('read-again-btn');
 
+    // ★★★ NEW: Get the audio elements from the HTML ★★★
+    const openSound = document.getElementById('open-sound');
+    const turnSound = document.getElementById('turn-sound');
+    const backgroundMusic = document.getElementById('music');
+    backgroundMusic.volume = 0.5; // Optional: Set a comfortable volume (from 0.0 to 1.0)
+
     let currentPageIndex = 0;
 
     // Function to switch between screens
@@ -28,14 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Loading Logic ---
     setTimeout(() => {
         showScreen('envelope');
-    }, 1500); // Simulate loading for 1.5 seconds
+    }, 2500); // Simulate loading for 2.5 seconds
 
     // --- Envelope Logic ---
     openEnvelopeBtn.addEventListener('click', () => {
+        // ★★★ NEW: Play the envelope opening sound ★★★
+        openSound.currentTime = 0; // Rewind to the start
+        openSound.play();
+
         envelope.classList.add('open');
-        // UPDATED: Wait for the longer fly-out animation to finish
+        
+        // Wait for animation to finish before switching screens
         setTimeout(() => {
             showScreen('postcard');
+            // ★★★ NEW: Start the background music ★★★
+            backgroundMusic.play();
         }, 1500); // 1.5 second delay
     });
 
@@ -55,6 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentPageIndex < postcardPages.length - 1) {
             currentPageIndex++;
             showPage(currentPageIndex);
+            // ★★★ NEW: Play the page turn sound ★★★
+            turnSound.currentTime = 0; // Rewind to the start
+            turnSound.play();
         }
     });
 
@@ -62,15 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentPageIndex > 0) {
             currentPageIndex--;
             showPage(currentPageIndex);
+            // ★★★ NEW: Play the page turn sound ★★★
+            turnSound.currentTime = 0; // Rewind to the start
+            turnSound.play();
         }
     });
 
     // --- End and Restart Logic ---
     endLetterBtn.addEventListener('click', () => {
         showScreen('thanks');
+        // ★★★ NEW: Stop the music at the end ★★★
+        backgroundMusic.pause();
     });
 
     readAgainBtn.addEventListener('click', () => {
+        // ★★★ NEW: Reset music when reading again ★★★
+        backgroundMusic.currentTime = 0; // Rewind the music to the start
+
         // Reset everything to the initial state
         envelope.classList.remove('open');
         currentPageIndex = 0;
