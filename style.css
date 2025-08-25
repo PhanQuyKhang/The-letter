@@ -63,7 +63,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #d1b2a1;
-    z-index: 5;
+    z-index: 7;
 }
 .envelope-body::before {
     content: '';
@@ -100,7 +100,7 @@ body {
     background-color: #fffaf0;
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    z-index: 2;
+    z-index: 3;
     transition: transform 0.8s 0.3s ease-out, opacity 0.8s 0.3s ease-out;
     transform: translateY(0);
     opacity: 1;
@@ -123,6 +123,10 @@ body {
     cursor: pointer;
     z-index: 10;
     transition: opacity 0.3s;
+}
+
+#open-envelope-btn:hover {
+    background-color: #67594f;
 }
 .envelope.open #open-envelope-btn {
     opacity: 0;
@@ -202,6 +206,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 .nav-btn:hover {
     background-color: #7a685a;
@@ -233,6 +238,12 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#read-again-btn:hover {
+    background-color: #7a685a;
 }
 
 
