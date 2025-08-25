@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const envelope = document.getElementById('envelope');
     const openEnvelopeBtn = document.getElementById('open-envelope-btn');
+
+    // ★★★ NEW: Get a reference to the postcard element itself ★★★
+    const postcard = document.querySelector('.postcard');
     
     const postcardPages = document.querySelectorAll('.page');
     const prevPageBtn = document.getElementById('prev-page-btn');
@@ -24,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     backgroundMusic.volume = 0.5;
 
     let currentPageIndex = 0;
-    // ★★★ NEW: A "memory" variable to track if music has started playing ★★★
     let musicHasStarted = false;
 
     // Function to switch between screens
@@ -48,12 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Wait for animation to finish before switching screens
         setTimeout(() => {
             showScreen('postcard');
-            // ★★★ MODIFIED: Only play the music if it hasn't started before ★★★
             if (!musicHasStarted) {
                 backgroundMusic.play();
-                musicHasStarted = true; // Set the flag so this code doesn't run again
+                musicHasStarted = true;
             }
-        }, 3000); // 1.5 second delay
+        }, 3000); // 3 second delay
     });
 
     // --- Postcard Navigation Logic ---
@@ -73,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
             showPage(currentPageIndex);
             turnSound.currentTime = 0;
             turnSound.play();
+            // ★★★ NEW: Reset scroll to top ★★★
+            postcard.scrollTop = 0;
         }
     });
 
@@ -82,19 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
             showPage(currentPageIndex);
             turnSound.currentTime = 0;
             turnSound.play();
+            // ★★★ NEW: Reset scroll to top ★★★
+            postcard.scrollTop = 0;
         }
     });
 
     // --- End and Restart Logic ---
     endLetterBtn.addEventListener('click', () => {
         showScreen('thanks');
-        // ★★★ REMOVED: The line "backgroundMusic.pause()" is gone ★★★
     });
 
     readAgainBtn.addEventListener('click', () => {
-        // ★★★ REMOVED: The line "backgroundMusic.currentTime = 0;" is gone ★★★
-
-        // Reset everything to the initial state
         envelope.classList.remove('open');
         currentPageIndex = 0;
         showPage(currentPageIndex);
