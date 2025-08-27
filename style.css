@@ -1,3 +1,6 @@
+/* ★★★ ADD THIS AT THE VERY TOP OF THE FILE ★★★ */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 /* General Body & Screen Styling */
 body {
     margin: 0;
@@ -7,7 +10,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* ★★★ THIS IS THE FIX: Changed 100vh to 100dvh ★★★ */
     height: 100dvh; 
 }
 
@@ -163,6 +165,16 @@ body {
     line-height: 1.6;
     color: #333;
 }
+/* ★★★ ADD THIS NEW RULE FOR THE SIGNATURE ★★★ */
+.signature {
+    margin-top: 40px; /* Add space above the signature */
+    text-align: right; /* Align it to the right */
+    font-family: 'Dancing Script', cursive; /* Use the new font */
+    font-size: 1.8em; /* Make it larger */
+    line-height: 1.2; /* Adjust line spacing */
+    color: #5a4b40;
+}
+
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -282,6 +294,8 @@ body {
     .page h1 { font-size: 1.8em; }
     .page h2 { font-size: 1.4em; }
     .page p { font-size: 0.95em; line-height: 1.5; }
+    /* Make signature smaller on mobile */
+    .signature { font-size: 1.5em; margin-top: 25px; }
 
     .postcard-nav {
         bottom: 25px;

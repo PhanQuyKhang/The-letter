@@ -9,10 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const envelope = document.getElementById('envelope');
     const openEnvelopeBtn = document.getElementById('open-envelope-btn');
-
-    // ★★★ NEW: Get a reference to the postcard element itself ★★★
-    const postcard = document.querySelector('.postcard');
     
+    const postcard = document.querySelector('.postcard');
     const postcardPages = document.querySelectorAll('.page');
     const prevPageBtn = document.getElementById('prev-page-btn');
     const nextPageBtn = document.getElementById('next-page-btn');
@@ -42,14 +40,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Envelope Logic ---
     openEnvelopeBtn.addEventListener('click', () => {
+        // Play the opening sound effect (this works because it's immediate)
         openSound.currentTime = 0;
         openSound.play();
 
+        // ★★★ THE SAFARI FIX ★★★
+        // "Prime" the background music on the initial user click
+        if (!musicHasStarted) {
+            backgroundMusic.play(); // Play the music
+            backgroundMusic.pause(); // Immediately pause it. The user hears nothing.
+                                     // Safari now trusts this audio element.
+        }
+        
         envelope.classList.add('open');
         
         // Wait for animation to finish before switching screens
         setTimeout(() => {
             showScreen('postcard');
+            // Now, this .play() call will work because the audio is "unlocked"
             if (!musicHasStarted) {
                 backgroundMusic.play();
                 musicHasStarted = true;
@@ -74,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
             showPage(currentPageIndex);
             turnSound.currentTime = 0;
             turnSound.play();
-            // ★★★ NEW: Reset scroll to top ★★★
             postcard.scrollTop = 0;
         }
     });
@@ -85,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
             showPage(currentPageIndex);
             turnSound.currentTime = 0;
             turnSound.play();
-            // ★★★ NEW: Reset scroll to top ★★★
             postcard.scrollTop = 0;
         }
     });
